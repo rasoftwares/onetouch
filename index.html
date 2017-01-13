@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="AppCtrl">
+  <head>
+    <link rel="stylesheet" href="components\bootstrap\css\bootstrap.min.css">
+	
+	 <script src="components/angular/angular.min.js"></script>
+    <script src="components/forms/dynamic-forms.js"></script>
+    <script src="app/app.js"></script>
+    <style>
+      .nav,
+      .pagination,
+      .carousel a {
+        cursor: pointer;
+      }
+      
+      .fixed {
+        position: fixed;
+        margin: 0;
+      }
+      
+      [ng-cloak] {
+        display: none;
+      }
+      
+      div.fixed {
+        overflow-y: auto;
+        height: 100%;
+        margin-left: -15px;
+      }
+      
+      pre {
+        margin: 1ex 0;
+      }
+      
+      form,
+      ng-form {
+        border: 1px gray;
+        border-radius: 4px;
+        display: block;
+      }
+      
+      fieldset {
+        border: 1px solid gray;
+        border-radius: 4px;
+        display: block;
+        padding: .35em .625em .75em;
+        margin: 0 2px;
+      }
+      
+      legend {
+        font-weight: bold;
+      }
+      
+      fieldset > legend:first-of-type {
+        border: none;
+        margin-bottom: auto;
+        width: inherit;
+        padding: inherit;
+        color: gray;
+      }
+      
+      label,
+      span,
+      form > button,
+      ng-form > button,
+      form > input,
+      ng-form > input {
+        width: 48%;
+        padding: 1ex 1em;
+      }
+      
+      label > input,
+      label > select,
+      label > textarea {
+        float: right;
+        width: 60%;
+      }
+      
+      label div > label {
+        display: block;
+        padding: 1ex;
+        width: 100%;
+      }
+	 button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+    </style>
+  </head>
+  <body>
+    
+      <dynamic-form class="col-md-12" template="Form" ng-model="stdFormData">
+      </dynamic-form>
+   </dynamic-form>
+    <div class="col-md-4">
+      <div class="fixed col-md-4">
+        <pre>stdFormData: {{stdFormData | pretty}}</pre>
+       </div>
+    </div>
+   
+     </body>
+</html>
