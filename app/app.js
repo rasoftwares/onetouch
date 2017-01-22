@@ -1,10 +1,12 @@
 var app = angular.module('app', ['dynform']);
+var environment = "dev";
+var dataStore = "request";
+var authKey = "ve8PdopndzS3yD35SMF6KAd4VKpHQuxUotXNeHGw";
+var appURL = "https://onetouch-d52d4.firebaseio.com/"+ environment + "/" + dataStore +".json?auth="+ authKey;
+
 
 app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
-    var environment = "dev";
-    var dataStore = "request";
-    var authKey = "ve8PdopndzS3yD35SMF6KAd4VKpHQuxUotXNeHGw";
-    var appURL = "https://onetouch-d52d4.firebaseio.com/"+ environment + "/" + dataStore +".json?auth="+ authKey;
+    
 
     
 
@@ -13,16 +15,31 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.fromTemplate = templateData;
 
 
-    $scope.processForm = function () {
+    $scope.processForm = function (form) {
         /* Handle the form submission... */
         console.log("Processing Submit Action");
+        console.log(form);
         console.log($scope.formData);
     };
-
+  }])
+  .filter('pretty', function() {
+    return function (input) {
+      var temp;
+      try {
+        temp = angular.fromJson(input);
+      }
+      catch (e) {
+        temp = input;
+      }
+      
+      return angular.toJson(temp, true);
+    };
+  });
+  
 
 //data to object (json):
-  $scope.formDataToObject = function (elForm) {
-    console.log("---->" + elForm);
+   function formDataToObject(elForm) {
+    
 
   if (!elForm instanceof Element) return;
   var fields = elForm.querySelectorAll('input, select, textarea'),
@@ -55,9 +72,28 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
      //var submissionsRef = new Firebase('https://form-example-22b8c.firebaseio.com/submissions');
 
    //data format:
-   var data = a;
+   var data = JSON.stringify(a);
+   
+   print(data);
 
-   $http({
+
+   //send request to store data into firebase
+   $.ajax({
+      method: "POST",
+      headers: {"Content-Type":"application/json", "messagingSenderId" : "870378770543", "apiKey":"AIzaSyAN8LwYbrg4V9IZhrooI1ofRjzSER_9SxE"},
+      url: appURL,
+      data: data,
+      success: function(result){
+        print("Status" + status);
+      },
+      error: function (data, status) {
+        print("Status" + status);
+      }
+
+    });
+
+
+/*   $http({
       method: 'POST',
       url: appURL,
       data: data
@@ -72,7 +108,7 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
         console.log("ERROR" + response.error);
 
       });
-
+*/
 
   /*submissionsRef.push(data, function(err) {
     if (err) {
@@ -90,44 +126,30 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
 
 
 
-
-	
-  }])
-  .filter('pretty', function() {
-    return function (input) {
-      var temp;
-      try {
-        temp = angular.fromJson(input);
-      }
-      catch (e) {
-        temp = input;
-      }
-      
-      return angular.toJson(temp, true);
-    };
-  });
-  
-  
-
+function print(message){
+  if ( console && console.log ) {
+      console.log(message);
+    }
+}
  
  
- //view data:
+ //view data: Sample Value set
  var aFormData = {
-  "companyName": "rablion",
+  "companyName": "AVRS Designer Sarees",
   "registrationNo": "1234",
-  "title": "catalog",
-  "RegistrationYear": "2016",
-  "shortDescription": "software",
-  "OwnerName": "ownerer",
+  "title": "Designer Sarees",
+  "RegistrationYear": "2016-01-22",
+  "shortDescription": "Designer Sarees and Materials Seller",
+  "OwnerName": "Radhiga",
   "photograph": "",
-  "registeredAddress": "kelambakkam",
-  "officeAddress": "kelambakkam",
+  "registeredAddress": "Thirupathur",
+  "officeAddress": "Thirupathur",
   "landlineNumber": "03334444",
   "mobileNumber": "1234567890",
   "emailId": "mail@gamil.com",
-  "website": "www.rablion.com",
-  "aboutcompany": "it",
-  "aboutBusiness": "it",
+  "website": "www.avrsdesignersarees.com",
+  "aboutcompany": "Designer Sarees and Materials Seller",
+  "aboutBusiness": "Designer Sarees and Materials Seller",
   "name1": "",
   "name2": "",
   "name3": "",

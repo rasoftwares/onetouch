@@ -120,19 +120,19 @@
   </head>
   <body>
     
-      <dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData" ng-submit="processForm()">
-        <input type="submit"/>  
+      <dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
+        
       </dynamic-form>
 
 
    
-    <!--div class="col-md-4">
+    <div class="col-md-4">
       <div class="fixed col-md-4">
         <pre>stdFormData: {{stdFormData | pretty}}</pre>
        </div>
     </div>
-	<button ng-click="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>
-    <button onclick="populateForm(aFormData)"><strong>View</strong></button-->
+	<button onClick="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>
+    <button onclick="populateForm(aFormData)"><strong>View</strong></button>
 
 	
     </body>
