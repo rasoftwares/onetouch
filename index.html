@@ -3,9 +3,34 @@
   <head>
     <link rel="stylesheet" href="components\bootstrap\css\bootstrap.min.css">
 	
-	 <script src="components/angular/angular.min.js"></script>
+    <!--script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script-->
+    <script src="components/firebase/firebase.js"></script>
+    
+    <script src="components/jquery.js"></script>
+	<script src="components/angular/angular.min.js"></script>
     <script src="components/forms/dynamic-forms.js"></script>
+    
+    <!-- Generic template holds form fields-->
+    <script src="app/genericTemplate.js"></script>
+
     <script src="app/app.js"></script>
+
+
+<!--script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script-->
+<!--script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAN8LwYbrg4V9IZhrooI1ofRjzSER_9SxE",
+    authDomain: "onetouch-d52d4.firebaseapp.com",
+    databaseURL: "https://onetouch-d52d4.firebaseio.com",
+    storageBucket: "onetouch-d52d4.appspot.com",
+    messagingSenderId: "870378770543"
+  };
+
+  firebase.initializeApp(config);
+</script-->
+
+
     <style>
       .nav,
       .pagination,
@@ -95,14 +120,20 @@
   </head>
   <body>
     
-      <dynamic-form class="col-md-12" template="Form" ng-model="stdFormData">
+      <dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData" ng-submit="processForm()">
+        <input type="submit"/>  
       </dynamic-form>
-   </dynamic-form>
-    <div class="col-md-4">
+
+
+   
+    <!--div class="col-md-4">
       <div class="fixed col-md-4">
         <pre>stdFormData: {{stdFormData | pretty}}</pre>
        </div>
     </div>
-   
-     </body>
+	<button ng-click="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>
+    <button onclick="populateForm(aFormData)"><strong>View</strong></button-->
+
+	
+    </body>
 </html>
