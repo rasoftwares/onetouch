@@ -106,8 +106,9 @@
         padding: 1ex;
         width: 100%;
       }
-	 button {
-    background-color: #4CAF50; /* Green */
+
+	 /*button {
+    background-color: #4CAF50; 
     border: none;
     color: white;
     padding: 15px 32px;
@@ -115,25 +116,28 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-}
+} */
     </style>
   </head>
   <body>
-    
+      <div class="container"> 
       <dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
         
       </dynamic-form>
 
 
-   
     <div class="col-md-4">
       <div class="fixed col-md-4">
         <pre>stdFormData: {{stdFormData | pretty}}</pre>
        </div>
     </div>
-	<button onClick="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>
-    <button onclick="populateForm(aFormData)"><strong>View</strong></button>
+	  <button class="btn btn-primary" onClick="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>
+    <button class="btn btn-info" onclick="populateForm(aFormData)"><strong>View</strong></button>
+    <button class="btn btn-success"><strong>Download for Android</strong></button>
+    <button class="btn btn-success"><strong>Download for iOS </strong></button>
+    <!-- TODO : Add preview screen -->
+    <!-- TODO : Create table for downloading various options -->
 
-	
+    </div>	
     </body>
 </html>

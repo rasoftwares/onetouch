@@ -13,14 +13,31 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.formData = { };
 
     $scope.fromTemplate = templateData;
+    
+    $scope.requestList = "";
 
-
-    $scope.processForm = function (form) {
+    $scope.processForm = function () {
         /* Handle the form submission... */
         console.log("Processing Submit Action");
         console.log(form);
         console.log($scope.formData);
     };
+
+    /* retrieve all of the requests from the url for listing*/
+    $scope.getRequestList = function (){ $http({
+        method: "GET",
+        url : appURL
+      }).then(function successCallback(response){
+        console.log("Success" + response.status);
+        $scope.requestList  = response.data ;
+      }, function errorCallback(){
+        console.log("Error");
+
+      });
+    }
+    
+
+
   }])
   .filter('pretty', function() {
     return function (input) {
@@ -85,9 +102,11 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
       data: data,
       success: function(result){
         print("Status" + status);
+        alert("Request Saved Successfully");
       },
       error: function (data, status) {
         print("Status" + status);
+        alert("Problem Saving");
       }
 
     });
