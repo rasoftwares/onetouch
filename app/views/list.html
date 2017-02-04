@@ -1,0 +1,12 @@
+<div class="row" ng-init="getRequestList()">
+  <table class="table">
+    <tr>
+      <th>id</th>
+      <th>OwnerName</th>
+    </tr>
+    <tr ng-repeat="request in requestList">
+      <th>{{request.id}}</th>
+      <th>{{request.OwnerName}}</th>
+    </tr>
+  </table>
+</div>

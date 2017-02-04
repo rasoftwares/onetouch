@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html ng-app="app" ng-controller="AppCtrl">
+<html ng-app="oneTouchApp" ng-controller="AppCtrl">
   <head>
+    <meta http-equiv="refresh" content="60">
+
+
+    <!-- include third party opensource stylesheet frameworks-->
     <link rel="stylesheet" href="components\bootstrap\css\bootstrap.min.css">
-	
+
+    <!-- include Third party opensource javascript frameworks-->
+
     <!--script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script-->
     <script src="components/firebase/firebase.js"></script>
-    
+
     <script src="components/jquery.js"></script>
-	<script src="components/angular/angular.min.js"></script>
+	  <script src="components/angular/angular.min.js"></script>
+    <script src="components/angular/angular-route.min.js"></script>
+
     <script src="components/forms/dynamic-forms.js"></script>
-    
-    <!-- Generic template holds form fields-->
-    <script src="app/genericTemplate.js"></script>
+
+
+    <!-- include Rablion javascript framework-->
 
     <script src="app/app.js"></script>
+
+    <!-- include Rablion javascript Data files-->
+    <script src="app/genericTemplate.js"></script>
+
+    <!-- include Rablion javascript Data files-->
 
 
 <!--script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script-->
@@ -30,40 +43,39 @@
   firebase.initializeApp(config);
 </script-->
 
-
     <style>
       .nav,
       .pagination,
       .carousel a {
         cursor: pointer;
       }
-      
+
       .fixed {
         position: fixed;
         margin: 0;
       }
-      
+
       [ng-cloak] {
         display: none;
       }
-      
+
       div.fixed {
         overflow-y: auto;
         height: 100%;
         margin-left: -15px;
       }
-      
+
       pre {
         margin: 1ex 0;
       }
-      
+
       form,
       ng-form {
         border: 1px gray;
         border-radius: 4px;
         display: block;
       }
-      
+
       fieldset {
         border: 1px solid gray;
         border-radius: 4px;
@@ -71,11 +83,11 @@
         padding: .35em .625em .75em;
         margin: 0 2px;
       }
-      
+
       legend {
         font-weight: bold;
       }
-      
+
       fieldset > legend:first-of-type {
         border: none;
         margin-bottom: auto;
@@ -83,7 +95,7 @@
         padding: inherit;
         color: gray;
       }
-      
+
       label,
       span,
       form > button,
@@ -93,14 +105,14 @@
         width: 48%;
         padding: 1ex 1em;
       }
-      
+
       label > input,
       label > select,
       label > textarea {
         float: right;
         width: 60%;
       }
-      
+
       label div > label {
         display: block;
         padding: 1ex;
@@ -108,7 +120,7 @@
       }
 
 	 /*button {
-    background-color: #4CAF50; 
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -120,24 +132,41 @@
     </style>
   </head>
   <body>
-      <div class="container"> 
-      <dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
-        
-      </dynamic-form>
+    <!-- Navigation Bar-->
+    <nav class="navbar navbar-default" ng-controller='navCtrl'>
+  		<div class="container-fluid">
+  			<div class="navbar-header">
+  				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  					<span class="sr-only">Toggle navigation</span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  				</button>
+  			<!-- Branding image -->
+  			<a class="navbar-brand" href="">{{applicationName}}
+  			</a>
+  		</div>
+
+  		<!-- Collect the nav links, forms, and other content for toggling -->
+  		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  		  <ul class="nav navbar-nav">
+  			     <li class="" ng-repeat="i in menuItems"><a href="#{{i.url}}" ng-if="i.visible">{{ i.name }} </a></li>
+  		  </ul>
 
 
-    <div class="col-md-4">
-      <div class="fixed col-md-4">
-        <pre>stdFormData: {{stdFormData | pretty}}</pre>
-       </div>
-    </div>
-	  <button class="btn btn-primary" onClick="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>
-    <button class="btn btn-info" onclick="populateForm(aFormData)"><strong>View</strong></button>
-    <button class="btn btn-success"><strong>Download for Android</strong> </button>
-    <button class="btn btn-success"><strong>Download for iOS </strong></button>
-    <!-- TODO : Add preview screen -->
-    <!-- TODO : Create table for downloading various options -->
+  		  <!-- TODO: As of now this is a dummy search link -->
+  		  <form class="navbar-form navbar-right" ng-if='enableSearch'>
+  			<div class="form-group">
+  			  <input type="text" class="form-control" placeholder="Search">
+  			</div>
+  			<button type="submit" class="btn btn-default btn-xs">{{search_title}}</button>
+  		  </form>
 
-    </div>	
+  		</div><!-- /.navbar-collapse -->
+  		</div>
+  	  </nav>
+
+
+      <div ng-view/>
     </body>
 </html>

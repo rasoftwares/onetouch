@@ -1,19 +1,33 @@
-var app = angular.module('app', ['dynform']);
+var app = angular.module('oneTouchApp', ['dynform','ngRoute']);
 var environment = "dev";
 var dataStore = "request";
 var authKey = "ve8PdopndzS3yD35SMF6KAd4VKpHQuxUotXNeHGw";
 var appURL = "https://onetouch-d52d4.firebaseio.com/"+ environment + "/" + dataStore +".json?auth="+ authKey;
 
+/* Routing logic of the app */
+app.config(['$routeProvider', function($routeProvider){
+
+  //Source directory where all of the html fragments are placed
+  var src_dir = "app/views/";
+
+  $routeProvider
+    .when('/',{ templateUrl: src_dir +'home.html'})
+    .when('/list',{ templateUrl: src_dir +'list.html'});
+}]);
+// Routing logic ends
+
+//home controller
+app.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
+
+}]);
 
 app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
-    
 
-    
 
     $scope.formData = { };
 
     $scope.fromTemplate = templateData;
-    
+
     $scope.requestList = "";
 
     $scope.processForm = function () {
@@ -34,9 +48,22 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
         console.log("Error");
 
       });
-    }
-    
+    };
 
+    /* process form request */
+    $scope.processRequest = function (){
+
+    };
+
+    /* download android app */
+    $scope.downloadAndroidApp = function (){
+
+    };
+
+    /* download ios app */
+    $scope.downloadiIOSApp = function (){
+
+    };
 
   }])
   .filter('pretty', function() {
@@ -48,15 +75,32 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
       catch (e) {
         temp = input;
       }
-      
+
       return angular.toJson(temp, true);
     };
   });
-  
+
+app.controller('navCtrl', ['$scope', function ($scope) {
+
+  $scope.applicationName = 'One Touch Apps';
+  $scope.search_title="Go";
+
+	$scope.menuItems = [{"name":"Home", "url": "/", "onClick":"home", "visible" : true},
+						        {"name":"Settings", "url": "settings", "onClick":"settings", "visible" : false},
+						        {"name":"List", "url": "list", "onClick":"list", "visible" : true}
+					   ];
+
+  //enable Search form field if the below setting is set to true
+  $scope.enableSearch = false;
+
+  $scope.settings = function(){ };
+
+}]);
+
 
 //data to object (json):
    function formDataToObject(elForm) {
-    
+
 
   if (!elForm instanceof Element) return;
   var fields = elForm.querySelectorAll('input, select, textarea'),
@@ -90,7 +134,7 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
 
    //data format:
    var data = JSON.stringify(a);
-   
+
    print(data);
 
 
@@ -140,7 +184,7 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
     Form.reset();
 
     return a;
-  
+
  }
 
 
@@ -150,8 +194,8 @@ function print(message){
       console.log(message);
     }
 }
- 
- 
+
+
  //view data: Sample Value set
  var aFormData = {
   "companyName": "AVRS Designer Sarees",
