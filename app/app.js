@@ -80,11 +80,13 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
     };
   });
 
+// Controller for all of the application menu and associated configurations
 app.controller('navCtrl', ['$scope', function ($scope) {
 
   $scope.applicationName = 'One Touch Apps';
   $scope.search_title="Go";
 
+  /* Dynamic menu and it's properties */
 	$scope.menuItems = [{"name":"Home", "url": "/", "onClick":"home", "visible" : true},
 						        {"name":"Settings", "url": "settings", "onClick":"settings", "visible" : false},
 						        {"name":"List", "url": "list", "onClick":"list", "visible" : true}
