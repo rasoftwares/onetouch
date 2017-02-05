@@ -38,20 +38,19 @@ var templateData = {
                 "placeholder": "OwnerName"
                },
 			    "photograph": {
-				
+
 				"id":"file",
                 "type": "file",
                 "label": "Photograph",
 				"placeholder": "Url",
 				"alt":"fileDispalyarea"
-				
-				} 
+
+				}
 		  }
-			 
           }
-	        		  
-        }      
-	 
+
+        }
+
 	  },
   "fieldset-B": {
             "type": "fieldset",
@@ -67,7 +66,7 @@ var templateData = {
                 "label": "OfficeAddress",
                 "placeholder": "officeAddress"
                 },
-					
+
 			  "landlineNumber": {
                 "type": "number",
                 "label": "LandlineNumber",
@@ -85,8 +84,8 @@ var templateData = {
                 }
 			       }
           },
-	 
-		   
+
+
 	 "fieldset-c": {
             "type": "fieldset",
             "label": "Website",
@@ -107,9 +106,9 @@ var templateData = {
                 "placeholder": "aboutBusiness"
                 }
 				}
-			 	
+
           },
-				
+
     "fieldset-D": {
             "type": "fieldset",
             "label": "Gallary",
@@ -125,7 +124,7 @@ var templateData = {
                 "label": "Image",
 				"placeholder": "Url",
                  "source": ""
-				 
+
                 },
 			      "name3": {
                 "type": "file",
@@ -135,7 +134,7 @@ var templateData = {
                 }
 				}
         },
-           
+
 	"fieldset-E": {
             "type": "fieldset",
             "label": "Product",
@@ -170,7 +169,7 @@ var templateData = {
                 "type": "textarea",
                 "label": "Description",
                  "placeholder": "description"
-			
+
                 },
 				"brandImageIcon": {
 				"id":"brandImageIcon",
@@ -209,7 +208,7 @@ var templateData = {
                 "type": "textarea",
                 "label": "Summary",
                  "placeholder": "summary"
-				 
+
                 }
 	       }
 	   }

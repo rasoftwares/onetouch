@@ -13,6 +13,7 @@ app.config(['$routeProvider', function($routeProvider){
   $routeProvider
     .when('/',{ templateUrl: src_dir +'home.html'})
     .when('/list',{ templateUrl: src_dir +'list.html'});
+    .when('/settings',{ templateUrl: src_dir +'settings.html'});
 }]);
 // Routing logic ends
 
@@ -89,7 +90,7 @@ app.controller('navCtrl', ['$scope', function ($scope) {
   /* Dynamic menu and it's properties */
 	$scope.menuItems = [{"name":"Home", "url": "/", "onClick":"home", "visible" : true},
 						        {"name":"Settings", "url": "settings", "onClick":"settings", "visible" : false},
-						        {"name":"List", "url": "list", "onClick":"list", "visible" : true}
+						        {"name":"List", "url": "/list", "onClick":"list", "visible" : true}
 					   ];
 
   //enable Search form field if the below setting is set to true
