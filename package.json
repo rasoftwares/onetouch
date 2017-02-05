@@ -17,6 +17,6 @@
     "angular-route": "^1.6.1"
   },
   "scripts": {
-    "test": "karma start --single-run --browsers PhantomJS"
+    "test": "karma start --single-run --browsers Firefox"
   }
 }
