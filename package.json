@@ -28,6 +28,6 @@
     "karma-jasmine": "^1.1.0"
   },
   "scripts": {
-    "test": "karma start --single-run --browsers Chrome"
+    "test": "karma start --browsers Firefox --single-run"
   }
 }
