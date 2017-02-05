@@ -15,9 +15,17 @@
     "angular": "^1.6.1",
     "angular-mocks": "^1.6.1",
     "angular-resource": "^1.6.1",
-    "angular-route": "^1.6.1"
+    "angular-route": "^1.6.1",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-karma": "^2.0.0",
+    "jasmine": "^2.5.3",
+    "karma": "^1.4.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.1.0"
   },
   "scripts": {
-    "test": "karma start --single-run --browsers Firefox"
+    "test": "karma start --single-run --browsers Chrome"
   }
 }
