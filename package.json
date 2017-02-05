@@ -28,6 +28,6 @@
     "karma-jasmine": "^1.1.0"
   },
   "scripts": {
-    "test": "karma start --browsers Firefox --single-run"
+    "test": "karma init karma-unit.conf.js start --browsers Firefox --single-run"
   }
 }
