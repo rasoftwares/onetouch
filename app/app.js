@@ -12,8 +12,9 @@ app.config(['$routeProvider', function($routeProvider){
 
   $routeProvider
     .when('/',{ templateUrl: src_dir +'home.html'})
-    .when('/list',{ templateUrl: src_dir +'list.html'});
-    .when('/settings',{ templateUrl: src_dir +'settings.html'});
+    .when('/list',{ templateUrl: src_dir +'list.html'})
+    .when('/settings',{ templateUrl: src_dir +'settings.html'})
+    .otherwise({redirectTo: '/'});
 }]);
 // Routing logic ends
 
@@ -23,7 +24,6 @@ app.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
 }]);
 
 app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
-
 
     $scope.formData = { };
 
@@ -80,25 +80,6 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
       return angular.toJson(temp, true);
     };
   });
-
-// Controller for all of the application menu and associated configurations
-app.controller('navCtrl', ['$scope', function ($scope) {
-
-  $scope.applicationName = 'One Touch Apps';
-  $scope.search_title="Go";
-
-  /* Dynamic menu and it's properties */
-	$scope.menuItems = [{"name":"Home", "url": "/", "onClick":"home", "visible" : true},
-						        {"name":"Settings", "url": "settings", "onClick":"settings", "visible" : false},
-						        {"name":"List", "url": "/list", "onClick":"list", "visible" : true}
-					   ];
-
-  //enable Search form field if the below setting is set to true
-  $scope.enableSearch = false;
-
-  $scope.settings = function(){ };
-
-}]);
 
 
 //data to object (json):
