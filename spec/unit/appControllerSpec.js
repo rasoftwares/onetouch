@@ -14,7 +14,7 @@ describe('Navigation Controller ', function() {
 
 	describe('Navigation Controller', function(){
 		it('should not have a empty value for application name',function(){
-			expect('').not.toBe(scope.applicationName);
+			expect(scope.applicationName).not.toBe('');
 		});
 	});
 
