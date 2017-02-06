@@ -16,7 +16,16 @@ app.config(['$routeProvider', function($routeProvider){
     .when('/settings',{ templateUrl: src_dir +'settings.html'})
     .otherwise({redirectTo: '/'});
 }]);
+
 // Routing logic ends
+
+/* resourceProvider configurations at app level */
+
+app.config(['$resourceProvider', function($resourceProvider) {
+  // Don't strip trailing slashes from calculated URLs
+  $resourceProvider.defaults.stripTrailingSlashes = true;
+}]);
+/* resourceProvider configurations finsihed */
 
 //home controller
 app.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
