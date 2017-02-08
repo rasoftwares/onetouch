@@ -1,9 +1,11 @@
-var app = angular.module('oneTouchApp', ['dynform','ngRoute']);
+var app = angular.module('oneTouchApp', ['dynform','ngRoute','firebase']);
 
-var environment = "dev";
-var dataStore = "request";
-var authKey = "ve8PdopndzS3yD35SMF6KAd4VKpHQuxUotXNeHGw";
-var appURL = "https://onetouch-d52d4.firebaseio.com/"+ environment + "/" + dataStore +".json?auth="+ authKey;
+var firebaseURL = 'https://onetouch-d52d4.firebaseio.com/'
+var environment = 'dev';
+var dataStore = 'request';
+var authKey = 've8PdopndzS3yD35SMF6KAd4VKpHQuxUotXNeHGw';
+var appURL = firebaseURL + environment + "/" + dataStore +".json?auth="+ authKey;
+
 
 /* Routing logic of the app */
 app.config(['$routeProvider', function($routeProvider){
@@ -20,19 +22,6 @@ app.config(['$routeProvider', function($routeProvider){
 
 // Routing logic ends
 
-/* resourceProvider configurations at app level */
-/*
-app.config(['$resourceProvider', function($resourceProvider) {
-  // Don't strip trailing slashes from calculated URLs
-  $resourceProvider.defaults.stripTrailingSlashes = true;
-}]);
-*/
-/* resourceProvider configurations finsihed */
-
-//home controller
-app.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
-
-}]);
 
 app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
 

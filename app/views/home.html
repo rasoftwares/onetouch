@@ -1,9 +1,112 @@
-<div class="container-fluid" ng-controller="homeCtrl">
-  <a class="btn btn-lg"> App Request Form </a><BR/>
+<div class="container-fluid" ng-controller="homeController">
+  <center> <a class="btn btn-lg"> Request an App for Android / iOS </a> </center>
 
-  <dynamic-form id="Form" cl
-  ass="col-md-12" template="fromTemplate" ng-model="formData">
-  </dynamic-form>
+  <!--dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
+  </dynamic-form-->
+  <div id="accordion">
+    <h4>Step 1 - Company Details</h4>
+    <div>
+      <table class='table'>
+        <tr>
+          <td> Name </td>
+          <td> <input type='text' /></td>
+          <td> Title </td>
+          <td> <input type='text' /></td>
+          <td> Registration No </td>
+          <td> <input type='text' /></td>
+          <td> Registration Year </td>
+          <td> <input type='text' /></td>
+        </tr>
+        <tr>
+          <td> Owner Name </td>
+          <td> <input type='text' /></td>
+          <td> Photograph </td>
+          <td> <input type='file' /></td>
+          <td> Short Description </td>
+          <td> <input type='text' /></td>
+        </tr>
+      </table>
+    </div>
+    <h4>Step 2 - Contact Details </h4>
+    <div>
+      <table class='table'>
+        <tr>
+          <td> Registered Address </td>
+          <td> <input type='text' /></td>
+          <td> Office Address </td>
+          <td> <input type='text' /></td>
+          <td> Landline Number </td>
+          <td> <input type='text' /></td>
+          <td> Mobile Number </td>
+          <td> <input type='text' /></td>
+        </tr>
+        <tr>
+          <td> EmailId </td>
+          <td> <input type='text' /></td>
+
+        </tr>
+      </table>
+    </div>
+    <h4>Step 3 - Company Information </h4>
+    <div>
+      <table class='table'>
+        <tr>
+          <td> Website </td>
+          <td> <input type='text' /></td>
+          <td> About Company </td>
+          <td> <input type='text' /></td>
+        </tr>
+      </table>
+    </div>
+    <h4>Step 4 - Product Catalog </h4>
+    <div>
+      <table class='table'>
+        <tr>
+          <th> Product Name </th>
+          <th> Image </th>
+          <th> Price (Rs)</th>
+          <th> Discount (%)</th>
+        </tr>
+        <tr>
+          <td> Banars Saree </td>
+          <td> <input type='file' /></td>
+          <td> 10000 </td>
+          <td>  10 </td>
+        </tr>
+        <tr>
+          <td> Chudithar </td>
+          <td> <input type='file' /></td>
+          <td> 20000 </td>
+          <td>  10 </td>
+        </tr>
+      </table>
+    </div>
+    <h4>Step 5 - Service Catalog </h4>
+    <div>
+      <table class='table'>
+        <tr>
+          <th> Name </th>
+
+          <th> Price (Rs)</th>
+          <th> Discount (%)</th>
+          <th> Description </th>
+        </tr>
+        <tr>
+          <td> Training  </td>
+          <td> 10000 </td>
+          <td>  10 </td>
+          <td>  Educational Services </td>
+
+        </tr>
+        <tr>
+          <td> Martial Arts and Training </td>
+          <td> 20000 </td>
+          <td>  10 </td>
+          <td>  Martial Arts and Training  </td>
+        </tr>
+      </table>
+    </div>
+  </div>
     <div class="col-md-4">
       <div class="fixed col-md-4">
         <pre>stdFormData: {{stdFormData | pretty}}</pre>

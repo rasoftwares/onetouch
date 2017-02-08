@@ -3,7 +3,7 @@
 
 angular.module('oneTouchApp').controller('navController', function($scope){
   $scope.applicationName = 'One Touch Apps';
-  $scope.search_title="Go";
+  $scope.search_title="GO";
 
   /* Dynamic menu and it's properties */
   $scope.menuItems = [{"name":"Home", "url": "/", "onClick":"home", "visible" : true},
