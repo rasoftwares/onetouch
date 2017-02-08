@@ -1,24 +1,21 @@
 <div class="container">
+<!--div class="row"  ng-controller='listController'-->
 <div class="row" ng-init="getRequestList()" ng-controller='listController'>
-  <table class="table">
+  <table class="table" id="listTable">
     <tr>
       <th>id</th>
       <th>OwnerName</th>
+      <th>Company Name</th>
       <th>RegistrationYear</th>
       <th>Detail View</th>
-    </tr>
-    <tr ng-repeat="request in requestList">
-      <td>{{request.id}}</td>
-      <td>{{request.OwnerName}}</td>
-      <td>{{request.RegistrationYear}}</td>
-      <td><a class='btn' href='#/'> view </a></td>
+      <th>Status</th>
+      <th>iOS</th>
+      <th>Android</th>
     </tr>
   </table>
   <br/>
 
-  <div>
-    <input ng-model="data" />
-  </div>
+
 
 </div>
 </div>

@@ -5,6 +5,7 @@ var environment = 'dev';
 var dataStore = 'request';
 var authKey = 've8PdopndzS3yD35SMF6KAd4VKpHQuxUotXNeHGw';
 var appURL = firebaseURL + environment + "/" + dataStore +".json?auth="+ authKey;
+var all_appURL = firebaseURL + environment + "/" + dataStore ;
 
 
 /* Routing logic of the app */
@@ -22,13 +23,10 @@ app.config(['$routeProvider', function($routeProvider){
 
 // Routing logic ends
 
-
 app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.formData = { };
-
     $scope.fromTemplate = templateData;
-
     $scope.requestList = "";
 
     $scope.processForm = function () {
