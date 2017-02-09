@@ -13,15 +13,18 @@ app.controller('listController', function ($scope, $http, $firebaseObject) {
   });
 
   ref.on("value", function(snapshot) {
-    console.log("Key -> " + snapshot.key());
-    console.log("Object ->" + snapshot.exportVal());
+    //console.log("Key -> " + snapshot.key());
+    //console.log("Object ->" + snapshot.exportVal());
     $scope.data = snapshot.val();
 
-    //var = $.('#listTable').html();
-    console.log
+    $('#listTable').remove('#tbody');
+    //console.log($('#listTable').html());
+
+    //$('#listTable').append('<tbody id="tbody"></tbody');
+
     _.each(snapshot.exportVal(), function(element,idx,list){
-      console.log(idx + ":" + element);
-      $('#listTable').append( '<tr>'+
+      //console.log(idx + ":" + element);
+      $('#tbody').append( '<tr>'+
                                     '<td>' + idx + '</td>'
                                 +   '<td> ' + element.company.owner.name + '</td>'
                                 +   '<td> ' + element.company.name + '</td>'

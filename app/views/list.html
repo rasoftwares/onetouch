@@ -2,20 +2,19 @@
 <!--div class="row"  ng-controller='listController'-->
 <div class="row" ng-init="getRequestList()" ng-controller='listController'>
   <table class="table" id="listTable">
-    <tr>
+    <thead>
       <th>id</th>
       <th>OwnerName</th>
       <th>Company Name</th>
       <th>RegistrationYear</th>
       <th>Detail View</th>
       <th>Status</th>
-      <th>iOS</th>
-      <th>Android</th>
-    </tr>
+      <th> <center> <i class="fa fa-apple fa-2x" aria-hidden="true"> </i> </center></th>
+      <th> <center> <i class="fa fa-android fa-2x" aria-hidden="true"> </i> </center> </th>
+    </thead>
+
+    <tbody id='tbody'>
+    </tbody>
   </table>
-  <br/>
-
-
-
-</div>
+  <br/></div>
 </div>
