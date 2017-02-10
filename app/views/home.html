@@ -91,26 +91,34 @@
     </div>
     <h4>Step 5 - Service Catalog </h4>
     <div>
-      <table class='table'>
-        <tr>
-          <th> Name </th>
-          <th> Price (Rs)</th>
-          <th> Discount (%)</th>
-          <th> Description </th>
+      <table id="ServiceTable" class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price (Rs)</th>
+                <th>Discount(%)</th>
+                <th>Discription</th>
+                <th>Add/Edit</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+
+               </tr>
+        </thead>
+        <tbody>
+              <tr>
+                <td><input type="text" id="new_s_name"></td>
+                <td><input type="text" id="new_s_price"></td>
+                <td><input type="text" id="new_s_discount"></td>
+                <td><input type="text" id="new_s_discription"></td>
+                <td ><a class='btn' onclick="add_rows();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+                <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
+                <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                </td>
+
         </tr>
-        <tr>
-          <td> Training  </td>
-          <td> 10000 </td>
-          <td>  10 </td>
-          <td>  Educational Services </td>
-        </tr>
-        <tr>
-          <td> Martial Arts and Training </td>
-          <td> 20000 </td>
-          <td>  10 </td>
-          <td>  Martial Arts and Training  </td>
-        </tr>
-      </table>
+              </tbody>
+            </table>
     </div>
   </div>
     <div class="col-md-4">
