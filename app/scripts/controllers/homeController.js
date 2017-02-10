@@ -6,8 +6,8 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
 
     function edit_row(no)
     {
-     document.getElementById("edit_button"+no).style.display="none";
-     document.getElementById("save_button"+no).style.display="block";
+     document.getElementById("edit_button"+no);
+     document.getElementById("save_button"+no);
 
      var name=document.getElementById("name_row"+no);
      var image=document.getElementById("image_row"+no);
@@ -37,8 +37,8 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
      document.getElementById("price_row"+no).innerHTML=price_val;
      document.getElementById("discount_row"+no).innerHTML=discount_val;
 
-     document.getElementById("edit_button"+no).style.display="block";
-     document.getElementById("save_button"+no).style.display="none";
+     document.getElementById("edit_button"+no);
+     document.getElementById("save_button"+no);
     }
 
     function delete_row(no)
@@ -55,7 +55,7 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
 
      var table=document.getElementById("productTable");
      var table_len=(table.rows.length)-1;
-     var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='name_row"+table_len+"'>"+new_name+"</td><td id='image_row"+table_len+"'>"+new_image+"</td><td id='price_row"+table_len+"'>"+new_price+"</td><td id='discount_row"+table_len+"'>"+new_discount+"</td><td><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'> </td><td><input type='button' id='save_button"+table_len+"' value='Save' class='save' onclick='save_row("+table_len+")'> </td><td><input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
+     var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='name_row"+table_len+"'>"+new_name+"</td><td id='image_row"+table_len+"'>"+new_image+"</td><td id='price_row"+table_len+"'>"+new_price+"</td><td id='discount_row"+table_len+"'>"+new_discount+"</td><td><span class='glyphicon glyphicon-plus' onclick='edit_row("+table_len+")'</span></td><td><span class='glyphicon glyphicon-edit' onclick='save_row("+table_len+")'</span></td><td><span class='glyphicon glyphicon-trash' onclick='delete_row("+table_len+")'</span></td></tr>";
 
      document.getElementById("new_name").value="";
      document.getElementById("new_image").value="";
