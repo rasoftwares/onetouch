@@ -36,9 +36,9 @@
           <td> Office Address </td>
           <td> <input type='text' /></td>
           <td> Landline Number </td>
-          <td> <input type='number' /></td>
+          <td> <input type='number'  maxlength="10" /></td>
           <td> Mobile Number </td>
-          <td> <input type='number' /></td>
+          <td> <input type='number'  maxlength="10" /></td>
         </tr>
         <tr>
           <td> EmailId </td>
@@ -78,8 +78,9 @@
               <tr>
                 <td><input type="text" id="new_name"></td>
                 <td><input type="file" id="new_image"></td>
-                <td><input type="text" id="new_price"></td>
-                <td><input type="text" id="new_discount"></td>
+                <td><input type="text" id="new_price" maxlength="7"></td>
+                <td><input type="text" id="new_discount" maxlength="2" ></td>
+                <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td
                 <td colspan=3><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                 <td colspan=3><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                 <td colspan=3><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
