@@ -55,7 +55,7 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
 
      var table=document.getElementById("productTable");
      var table_len=(table.rows.length)-1;
-     var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='name_row"+table_len+"'>"+new_name+"</td><td id='image_row"+table_len+"'>"+new_image+"</td><td id='price_row"+table_len+"'>"+new_price+"</td><td id='discount_row"+table_len+"'>"+new_discount+"</td><td><span class='glyphicon glyphicon-plus' onclick='edit_row("+table_len+")'</span></td><td><span class='glyphicon glyphicon-edit' onclick='save_row("+table_len+")'</span></td><td><span class='glyphicon glyphicon-trash' onclick='delete_row("+table_len+")'</span></td></tr>";
+     var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='name_row"+table_len+"'>"+new_name+"</td><td id='image_row"+table_len+"'>"+new_image+"</td><td id='price_row"+table_len+"'>"+new_price+"</td><td id='discount_row"+table_len+"'>"+new_discount+"</td><td><span class='glyphicon glyphicon-pencil' onclick='edit_row("+table_len+")'</span></td><td><span class='glyphicon glyphicon-floppy-saved' onclick='save_row("+table_len+")'</span></td><td><span class='glyphicon glyphicon-trash' onclick='delete_row("+table_len+")'</span></td></tr>";
 
      document.getElementById("new_name").value="";
      document.getElementById("new_image").value="";

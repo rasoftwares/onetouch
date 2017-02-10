@@ -36,9 +36,9 @@
           <td> Office Address </td>
           <td> <input type='text' /></td>
           <td> Landline Number </td>
-          <td> <input type='number'  maxlength="10" /></td>
+          <td> <input type='number' /></td>
           <td> Mobile Number </td>
-          <td> <input type='number'  maxlength="10" /></td>
+          <td> <input type='number' /></td>
         </tr>
         <tr>
           <td> EmailId </td>
@@ -67,8 +67,8 @@
                 <th>Image</th>
                 <th>Price (Rs)</th>
                 <th>Discount(%)</th>
-                <th>Edit</th>
-                <th>Upload</th>
+                <th>Add/Edit</th>
+                <th>Update</th>
                 <th>Delete</th>
 
 
@@ -78,13 +78,12 @@
               <tr>
                 <td><input type="text" id="new_name"></td>
                 <td><input type="file" id="new_image"></td>
-                <td><input type="text" id="new_price" maxlength="7"></td>
-                <td><input type="text" id="new_discount" maxlength="2" ></td>
-                <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td
-                <td colspan=3><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                <td colspan=3><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                <td colspan=3><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                    </td>
+                <td><input type="text" id="new_price"></td>
+                <td><input type="text" id="new_discount"></td>
+                <td ><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+                <td ><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
+                <td ><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                </td>
 
         </tr>
               </tbody>
