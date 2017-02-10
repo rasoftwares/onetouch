@@ -13,9 +13,9 @@
           <td> Title </td>
           <td> <input type='text' /></td>
           <td> Registration No </td>
-          <td> <input type='text' /></td>
+          <td> <input type='number' /></td>
           <td> Registration Year </td>
-          <td> <input type='text' /></td>
+          <td> <input type='date' /></td>
         </tr>
         <tr>
           <td> Owner Name </td>
@@ -36,13 +36,13 @@
           <td> Office Address </td>
           <td> <input type='text' /></td>
           <td> Landline Number </td>
-          <td> <input type='text' /></td>
+          <td> <input type='number' /></td>
           <td> Mobile Number </td>
-          <td> <input type='text' /></td>
+          <td> <input type='number' /></td>
         </tr>
         <tr>
           <td> EmailId </td>
-          <td> <input type='text' /></td>
+          <td> <input type='email' /></td>
 
         </tr>
       </table>
@@ -60,33 +60,36 @@
     </div>
     <h4>Step 4 - Product Catalog </h4>
     <div>
-      <table class='table'>
-        <tr>
-          <th> Product Name </th>
-          <th> Image </th>
-          <th> Price (Rs)</th>
-          <th> Discount (%)</th>
-        </tr>
-        <tr>
-          <td> Banars Saree </td>
-          <td> <input type='file' /></td>
-          <td> 10000 </td>
-          <td>  10 </td>
-        </tr>
-        <tr>
-          <td> Chudithar </td>
-          <td> <input type='file' /></td>
-          <td> 20000 </td>
-          <td>  10 </td>
-        </tr>
-      </table>
+      <table id="productTable" class="table">
+        <thead>
+            <tr>
+                <th>ProductName</th>
+                <th>Image</th>
+                <th>Price (Rs)</th>
+                <th>Discount (%)</th>
+                <th>Edit</th>
+                <th>Update</th>
+                <th>Delete</th>
+                </tr>
+        </thead>
+        <tbody>
+              <tr>
+                <td><input type="text" id="new_name"></td>
+                <td><input type="file" id="new_image"></td>
+                <td><input type="text" id="new_price"></td>
+                <td><input type="text" id="new_discount"></td>
+                <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+                <td>.</td>
+                <td>.</td>
+                </tr>
+              </tbody>
+            </table>
     </div>
     <h4>Step 5 - Service Catalog </h4>
     <div>
       <table class='table'>
         <tr>
           <th> Name </th>
-
           <th> Price (Rs)</th>
           <th> Discount (%)</th>
           <th> Description </th>
@@ -96,7 +99,6 @@
           <td> 10000 </td>
           <td>  10 </td>
           <td>  Educational Services </td>
-
         </tr>
         <tr>
           <td> Martial Arts and Training </td>
@@ -120,3 +122,6 @@
     <!-- TODO : Add preview screen -->
     <!-- TODO : Create table for downloading various options -->
 </div>
+<script>
+
+</script>
