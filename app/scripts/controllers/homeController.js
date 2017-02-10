@@ -118,7 +118,7 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
 
            var table=document.getElementById("ServiceTable");
            var table_len=(table.rows.length)-1;
-           var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='s_name_row"+table_len+"'>"+new_s_name+"</td><td id='s_price_row"+table_len+"'>"+new_s_price+"</td><td id='s_discount_row"+table_len+"'>"+new_s_discount+"</td><td id='s_discription_row"+table_len+"'>"+new_s_discription+"</td><td><span class='glyphicon glyphicon-plus' onclick='edit_rows("+table_len+")'</span></td><td><span class='glyphicon glyphicon-edit' onclick='save_rows("+table_len+")'</span></td><td><span class='glyphicon glyphicon-trash' onclick='delete_rows("+table_len+")'</span></td></tr>";
+           var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='s_name_row"+table_len+"'>"+new_s_name+"</td><td id='s_price_row"+table_len+"'>"+new_s_price+"</td><td id='s_discount_row"+table_len+"'>"+new_s_discount+"</td><td id='s_discription_row"+table_len+"'>"+new_s_discription+"</td><td><span class='glyphicon glyphicon-pencil' onclick='edit_rows("+table_len+")'</span></td><td><span class='glyphicon glyphicon-floppy-saved' onclick='save_rows("+table_len+")'</span></td><td><span class='glyphicon glyphicon-trash' onclick='delete_rows("+table_len+")'</span></td></tr>";
 
            document.getElementById("new_s_name").value="";
            document.getElementById("new_s_price").value="";
