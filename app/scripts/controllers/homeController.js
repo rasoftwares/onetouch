@@ -63,8 +63,65 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
      document.getElementById("new_discount").value="";
     }
 
-    $(document).ready(function() {
-        $('#productTable').DataTable( {
-            "pagingType": "full_numbers"
-        } );
-    } );
+    /*function for servie catalog*/
+
+          function edit_rows(no)
+          {
+           document.getElementById("edit_button"+no);
+           document.getElementById("save_button"+no);
+
+           var s_name=document.getElementById("s_name_row"+no);
+           var s_price=document.getElementById("s_price_row"+no);
+           var s_discount=document.getElementById("s_discount_row"+no);
+           var s_discription=document.getElementById("s_discription_row"+no);
+
+           var s_name_data=s_name.innerHTML;
+           var s_price_data=s_price.innerHTML;
+           var s_discount_data=s_discount.innerHTML;
+           var s_discription_data=s_discount.innerHTML;
+
+           s_name.innerHTML="<input type='text' id='s_name_text"+no+"' value='"+s_name_data+"'>";
+           s_price.innerHTML="<input type='text' id='s_price_text"+no+"' value='"+s_price_data+"'>";
+           s_discount.innerHTML="<input type='text' id='s_discount_text"+no+"' value='"+s_discount_data+"'>";
+           s_discription.innerHTML="<input type='text' id='s_discription_text"+no+"' value='"+s_discription_data+"'>";
+          }
+
+          function save_rows(no)
+          {
+           var s_name_val=document.getElementById("s_name_text"+no).value;
+           var s_price_val=document.getElementById("s_price_text"+no).value;
+           var s_discount_val=document.getElementById("s_discount_text"+no).value;
+           var s_discription_val=document.getElementById("s_discription_text"+no).value;
+
+           document.getElementById("s_name_row"+no).innerHTML=s_name_val;
+           document.getElementById("s_price_row"+no).innerHTML=s_price_val;
+           document.getElementById("s_discount_row"+no).innerHTML=s_discount_val;
+           document.getElementById("s_discription_row"+no).innerHTML=s_discription_val;
+
+
+           document.getElementById("edit_button"+no);
+           document.getElementById("save_button"+no);
+          }
+
+          function delete_rows(no)
+          {
+           document.getElementById("row"+no+"").outerHTML="";
+          }
+
+          function add_rows()
+          {
+           var new_s_name=document.getElementById("new_s_name").value;
+           var new_s_price=document.getElementById("new_s_price").value;
+           var new_s_discount=document.getElementById("new_s_discount").value;
+           var new_s_discription=document.getElementById("new_s_discription").value;
+
+
+           var table=document.getElementById("ServiceTable");
+           var table_len=(table.rows.length)-1;
+           var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='s_name_row"+table_len+"'>"+new_s_name+"</td><td id='s_price_row"+table_len+"'>"+new_s_price+"</td><td id='s_discount_row"+table_len+"'>"+new_s_discount+"</td><td id='s_discription_row"+table_len+"'>"+new_s_discription+"</td><td><span class='glyphicon glyphicon-plus' onclick='edit_rows("+table_len+")'</span></td><td><span class='glyphicon glyphicon-edit' onclick='save_rows("+table_len+")'</span></td><td><span class='glyphicon glyphicon-trash' onclick='delete_rows("+table_len+")'</span></td></tr>";
+
+           document.getElementById("new_s_name").value="";
+           document.getElementById("new_s_price").value="";
+           document.getElementById("new_s_discount").value="";
+           document.getElementById("new_s_discription").value="";
+          }
