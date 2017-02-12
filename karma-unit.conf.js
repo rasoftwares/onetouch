@@ -4,6 +4,7 @@ module.exports = function(config){
       browsers: ['Chrome'],
       files: [
         'components/',
+        'components/jquery.min.js',
         'components/angular/angular.min.js',
         'components/firebase/firebase2.2.4.js',
         'components/angular/angularfire1.2.0.min.js',
