@@ -25,15 +25,15 @@ app.controller('listController', function ($scope, $http, $firebaseObject) {
     _.each(snapshot.exportVal(), function(element,idx,list){
       //console.log(idx + ":" + element);
       $('#tbody').append( '<tr>'+
-                                    '<td>' + idx + '</td>'
-                                +   '<td> ' + element.company.owner.name + '</td>'
-                                +   '<td> ' + element.company.name + '</td>'
-                                +   '<td> ' + element.company.registrationyear + '</td>'
-                                +   '<td> <a href="#/list" >' + 'view' + '</a></td>'
-                                +   '<td> ' + element.status + '</td>'
-                                +   '<td> <a class="btn" href="">' + element.ios + '</a</td>'
-                                +   '<td> <a class="btn" href="">' + element.android + '</a></td>'
-                                +'</tr>' );
+                                    '<td>' + idx + '</td>' +
+                                    '<td> ' + element.company.owner.name + '</td>' +
+                                    '<td> ' + element.company.name + '</td>' +
+                                    '<td> ' + element.company.registrationyear + '</td>'+
+                                    '<td> <a href="#/list" >' + 'view' + '</a></td>' +
+                                    '<td> ' + element.status + '</td>' +
+                                    '<td> <a class="btn" href="">' + element.ios + '</a</td>' +
+                                    '<td> <a class="btn" href="">' + element.android + '</a></td>' +
+                                    '</tr>' );
 
     });
 

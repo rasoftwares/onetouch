@@ -1,6 +1,6 @@
 var app = angular.module('oneTouchApp', ['dynform','ngRoute','firebase']);
 
-var firebaseURL = 'https://onetouch-d52d4.firebaseio.com/'
+var firebaseURL = 'https://onetouch-d52d4.firebaseio.com/';
 var environment = 'dev';
 var dataStore = 'request';
 var authKey = 've8PdopndzS3yD35SMF6KAd4VKpHQuxUotXNeHGw';
@@ -239,8 +239,8 @@ function populateForm(a) {
         break;
       default:
         if (el instanceof NodeList) {
-          for (var j=0, jmax=el.length; j<jmax; ++j) {
-            if (el[j].value===a[i]) el[j].checked = true;
+          for (var k=0, kmax=el.length; k<kmax; ++k) {
+            if (el[k].value===a[i]) el[k].checked = true;
           }
         } else {
           el.value = a[i];
