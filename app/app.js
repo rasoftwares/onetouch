@@ -64,6 +64,7 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
 
     };
 
+
   }])
   .filter('pretty', function() {
     return function (input) {
@@ -81,7 +82,7 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
 
 
 //data to object (json):
-   function formDataToObject(elForm) {
+   /*function formDataToObject(elForm) {
 
 
   if (!elForm instanceof Element) return;
@@ -163,11 +164,11 @@ app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
   window.alert('Submitted answers: \n' + JSON.stringify(data, null, 2));
  */
     //console.log('Form data:' + JSON.stringify(a, null, 2));
-    Form.reset();
+    //Form.reset();
 
-    return a;
+  //  return a;
 
- }
+ //}
 
 
 

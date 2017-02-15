@@ -3,27 +3,28 @@
 
   <!--dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
   </dynamic-form-->
+  <form id="form">
   <div id="accordion">
     <h4>Step 1 - Company Details</h4>
     <div>
       <table class='table'>
         <tr>
           <td> Name </td>
-          <td> <input type='text' /></td>
+          <td> <input type='text' name="company.name" /></td>
           <td> Title </td>
-          <td> <input type='text' /></td>
+          <td> <input type='text'  name="company.title"/></td>
           <td> Registration No </td>
-          <td> <input type='number' /></td>
+          <td> <input type='number' name="company.registrationNo"/></td>
           <td> Registration Year </td>
-          <td> <input type='date' /></td>
+          <td> <input type='date' name="company.date" /></td>
         </tr>
         <tr>
           <td> Owner Name </td>
-          <td> <input type='text' /></td>
+          <td> <input type='text'  name="company.owner.name" /></td>
           <td> Photograph </td>
-          <td> <input type='file' /></td>
+          <td> <input type='file' name="company.owner.photograph" /></td>
           <td> Short Description </td>
-          <td> <input type='text' /></td>
+          <td> <input type='text' name="company.shortDescription" /></td>
         </tr>
       </table>
     </div>
@@ -32,17 +33,17 @@
       <table class='table'>
         <tr>
           <td> Registered Address </td>
-          <td> <input type='text' /></td>
+          <td> <input type='text' name="contact.registrationAddress" /></td>
           <td> Office Address </td>
-          <td> <input type='text' /></td>
+          <td> <input type='text' name="contact.officeAddress" /></td>
           <td> Landline Number </td>
-          <td> <input type='number' /></td>
+          <td> <input type='number' name="contact.landlineNumber"/></td>
           <td> Mobile Number </td>
-          <td> <input type='number' /></td>
+          <td> <input type='number'  name="contact.mobileNumber"/></td>
         </tr>
         <tr>
           <td> EmailId </td>
-          <td> <input type='email' /></td>
+          <td> <input type='email'  name="contact.emailId"/></td>
 
         </tr>
       </table>
@@ -52,9 +53,9 @@
       <table class='table'>
         <tr>
           <td> Website </td>
-          <td> <input type='text' /></td>
+          <td> <input type='text' name="website.website "/></td>
           <td> About Company </td>
-          <td> <input type='text' /></td>
+          <td> <input type='text'   name="website.aboutcompany "/></td>
         </tr>
       </table>
     </div>
@@ -121,10 +122,10 @@
             </table>
     </div>
   </div>
+<form>
 
-
-	  <button class="btn btn-primary" onClick="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>
-    <button class="btn btn-info" onclick="populateForm(aFormData)"><strong>View</strong></button>
+	  <!--<button class="btn btn-primary" onClick="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>-->
+    <button class="btn btn-primary"><strong>Submit</strong></button>
     <button class="btn btn-success"><strong>Download for Android</strong> </button>
     <button class="btn btn-success"><strong>Download for iOS </strong></button>
     <!-- TODO : Add preview screen -->

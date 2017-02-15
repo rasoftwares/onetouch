@@ -2,7 +2,49 @@
 app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
   $( "#accordion" ).accordion();
 
+  var formToObj = function (obj, name, value) {
+     var path = name.split('.'),
+     current = obj,
+     len = path.length - 1,
+     i = 0;
+     for (; i < len; i++) {
+         current[path[i]] = current[path[i]] || {};
+         current = current[path[i]];
+     }
+     if ( 0 < path[i].indexOf( "[]" ) ) {
+         name = path[i].replace('[]', '');
+         current[name] = current[name] || [];
+         current[name].push(value);
+     } else {
+         current[path[i]] = value;
+     }
+     return obj;
+  };
+  jQuery.fn.serializeObject = function () {
+     var o = {},
+     a = this.serializeArray(),
+     i = 0,
+     len = a.length;
+     for (; i < len; i++) {
+         o = formToObj(o, a[i].name, a[i].value);
+     }
+      form.reset();
+     return o;
+  };
+
+  $('button').click(function(e) {
+     e.preventDefault();
+     var data = $('form').serializeObject();
+
+     console.log(data);
+     console.log(JSON.stringify(data));
+
+  });
+
     }]);
+
+
+
 
     function edit_row(no)
     {
