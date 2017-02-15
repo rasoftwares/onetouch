@@ -44,9 +44,3 @@ app.controller('listController', function ($scope, $http, $firebaseObject) {
 };
 
 });
-
-$(document).ready(function() {
-    $('#listTable').DataTable( {
-        "pagingType": "full_numbers"
-    } );
-} );
