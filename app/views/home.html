@@ -1,4 +1,6 @@
-<div class="container-fluid" ng-controller="homeController">
+
+
+ <div class="container-fluid" ng-controller="homeController">
   <center> <a class="btn btn-lg"> Request an App for <i class="fa fa-android fa-2x" aria-hidden="true"></i> / <i class="fa fa-apple fa-2x" aria-hidden="true"></i> </a> </center>
 
   <!--dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
@@ -24,7 +26,8 @@
           <td> Photograph </td>
           <td> <input type='file' name="company.owner.photograph" /></td>
           <td> Short Description </td>
-          <td> <input type='text' name="company.shortDescription" /></td>
+          <td colspan="4"><textarea style="width:100%;"  name ="company.shortDescription" ></textarea></td>
+
         </tr>
       </table>
     </div>
@@ -55,7 +58,8 @@
           <td> Website </td>
           <td> <input type='text' name="website.website "/></td>
           <td> About Company </td>
-          <td> <input type='text'   name="website.aboutcompany "/></td>
+         <td colspan="4"><textarea style="width:100%;"  name="website.aboutcompany"></textarea></td>
+
         </tr>
       </table>
     </div>
@@ -82,9 +86,9 @@
                 <td><input type="text" id="new_price"></td>
                 <td><input type="text" id="new_discount"></td>
                 <td ><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-                <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
+              <!--  <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
                 <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
-                </td>
+              </td>-->
 
         </tr>
               </tbody>
@@ -113,9 +117,9 @@
                 <td><input type="text" id="new_s_discount"></td>
                 <td><input type="text" id="new_s_discription"></td>
                 <td ><a class='btn' onclick="add_rows();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-                <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
+              <!--  <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
                 <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
-                </td>
+              </td>-->
 
         </tr>
               </tbody>
