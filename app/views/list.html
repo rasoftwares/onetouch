@@ -1,3 +1,14 @@
+<style>
+body
+{
+    counter-reset: Serial;
+}
+tr td:first-child:before
+{
+  counter-increment: Serial;
+  content: counter(Serial);
+  }
+</style>
 <div class="container">
 <!--div class="row"  ng-controller='listController'-->
 <div class="row" ng-init="getRequestList()" ng-controller='listController'>

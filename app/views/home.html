@@ -1,6 +1,9 @@
-
-
- <div class="container-fluid" ng-controller="homeController">
+<style>
+tbody#template {
+    display: none;
+}
+</style>
+<div class="container-fluid" ng-controller="homeController">
   <center> <a class="btn btn-lg"> Request an App for <i class="fa fa-android fa-2x" aria-hidden="true"></i> / <i class="fa fa-apple fa-2x" aria-hidden="true"></i> </a> </center>
 
   <!--dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
@@ -26,8 +29,7 @@
           <td> Photograph </td>
           <td> <input type='file' name="company.owner.photograph" /></td>
           <td> Short Description </td>
-          <td colspan="4"><textarea style="width:100%;"  name ="company.shortDescription" ></textarea></td>
-
+          <td> <input type='text' name="company.shortDescription" /></td>
         </tr>
       </table>
     </div>
@@ -58,84 +60,84 @@
           <td> Website </td>
           <td> <input type='text' name="website.website "/></td>
           <td> About Company </td>
-         <td colspan="4"><textarea style="width:100%;"  name="website.aboutcompany"></textarea></td>
-
+          <td> <input type='text'   name="website.aboutcompany "/></td>
         </tr>
       </table>
     </div>
     <h4>Step 4 - Product Catalog </h4>
     <div>
-      <table id="productTable" class="table">
-        <thead>
-            <tr>
-                <th>ProductName</th>
-                <th>Image</th>
-                <th>Price (Rs)</th>
-                <th>Discount(%)</th>
-                <th>Add/Edit</th>
-                <th>Update</th>
-                <th>Delete</th>
-
-
-               </tr>
-        </thead>
-        <tbody>
-              <tr>
-                <td><input type="text" id="new_name"></td>
-                <td><input type="file" id="new_image"></td>
-                <td><input type="text" id="new_price"></td>
-                <td><input type="text" id="new_discount"></td>
-                <td ><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-              <!--  <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
-                <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
-              </td>-->
-
-        </tr>
-              </tbody>
-            </table>
-    </div>
-    <h4>Step 5 - Service Catalog </h4>
-    <div>
-      <table id="ServiceTable" class="table">
+      <table id="tabledata" class="table">
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Image</th>
+                <th>Price (Rs)</th>
+                <th>Discount(%)</th>
+               </tr>
+        </thead>
+
+          <tbody id="input"></tbody>
+          <tbody id="template">
+              <tr>
+                  <td>
+                      <input name="name" type="text" />
+                  </td>
+                  <td>
+                      <input name="image" type="file" />
+                  </td>
+                  <td>
+                      <input name="price" type="number" />
+                  </td>
+                  <td>
+                      <input name="discount" type="number" />
+                  </td>
+              </tr>
+            </tbody>
+            </table>
+               <button id="ActionAddRow">Add Row</button>
+              <button id="ActionSubmit">Submit</button>
+    </div>
+    <h4>Step 5 - Service Catalog </h4>
+    <div>
+      <table id="tabledata" class="table">
+        <thead>
+            <tr>
+                <th>ServiceName</th>
                 <th>Price (Rs)</th>
                 <th>Discount(%)</th>
                 <th>Description</th>
-                <th>Add/Edit</th>
-                <th>Update</th>
-                <th>Delete</th>
-
-
                </tr>
         </thead>
-        <tbody>
-              <tr>
-                <td><input type="text" id="new_s_name"></td>
-                <td><input type="text" id="new_s_price"></td>
-                <td><input type="text" id="new_s_discount"></td>
-                <td><input type="text" id="new_s_discription"></td>
-                <td ><a class='btn' onclick="add_rows();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-              <!--  <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
-                <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
-              </td>-->
 
-        </tr>
-              </tbody>
+          <tbody id="serviceinput"></tbody>
+          <tbody id="template">
+              <tr>
+                  <td>
+                      <input name="name" type="text" />
+                  </td>
+                  <td>
+                      <input name="price" type="number" />
+                  </td>
+                  <td>
+                      <input name="discount" type="number" />
+                  </td>
+                  <td>
+                      <input name="description" type="text" />
+                  </td>
+              </tr>
+            </tbody>
             </table>
+               <button id="AddRow">Add Row</button>
+              <button id="Submit">Submit</button>
     </div>
   </div>
 <form>
     <div>
 	  <!--<button class="btn btn-primary" onClick="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>-->
-    <button class="btn btn-primary"><strong>Submit</strong></button>
+    <button class="btn btn-primary" id="submit"><strong>Submit</strong></button>
     <button class="btn btn-info " onclick="populateForm(FormData)"><strong>View</strong></button>
     <button class="btn btn-success"><strong>Download for Android</strong> </button>
     <button class="btn btn-success"><strong>Download for iOS </strong></button>
     <!-- TODO : Add preview screen -->
     <!-- TODO : Create table for downloading various options -->
 </div>
-<script>
-
-</script>

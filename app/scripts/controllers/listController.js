@@ -25,7 +25,7 @@ app.controller('listController', function ($scope, $http, $firebaseObject) {
     _.each(snapshot.exportVal(), function(element,idx,list){
       //console.log(idx + ":" + element);
       $('#tbody').append( '<tr>'+
-                                    '<td>' + idx + '</td>' +
+                                    '<td>' +'</td>' +
                                     '<td> ' + element.company.owner.name + '</td>' +
                                     '<td> ' + element.company.name + '</td>' +
                                     '<td> ' + element.company.registrationyear + '</td>'+
