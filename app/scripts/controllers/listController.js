@@ -41,12 +41,6 @@ app.controller('listController', function ($scope, $http, $firebaseObject, $comp
     console.log("Error reading from datasource: " + errorObject.code);
   });
 
-
-  /* download android app */
-  $scope.downloadAndroidApp = function () {
-
-  };
-
   /* download ios app */
   $scope.downloadiIOSApp = function (){
 

@@ -8,6 +8,7 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
 
   $scope.firebase_status = "";
 
+/*form to object */
   var formToObj = function (obj, name, value) {
      var path = name.split('.'),
      current = obj,
@@ -35,6 +36,7 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
      for (; i < len; i++) {
          o = formToObj(o, a[i].name, a[i].value);
      }
+
      //form.reset();
      return o;
   };
@@ -138,31 +140,9 @@ function edit_row(no) {
       var price_data=price.innerHTML;
      var discount_data=discount.innerHTML;
 
-     name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name_data+"'>";
-     image.innerHTML="<input type='file' id='image_file"+no+"' value='"+image_data+"'>";
-     price.innerHTML="<input type='text' id='price_text"+no+"' value='"+price_data+"'>";
-     discount.innerHTML="<input type='text' id='discount_text"+no+"' value='"+discount_data+"'>";
-    }
 
-function save_row(no){
-     var name_val=document.getElementById("name_text"+no).value;
-     var image_val=document.getElementById("image_file"+no).value;
-     var price_val=document.getElementById("price_text"+no).value;
-     var discount_val=document.getElementById("discount_text"+no).value;
+  };
 
-     document.getElementById("name_row"+no).innerHTML=name_val;
-     document.getElementById("image_row"+no).innerHTML=image_val;
-     document.getElementById("price_row"+no).innerHTML=price_val;
-     document.getElementById("discount_row"+no).innerHTML=discount_val;
-
-     document.getElementById("edit_button"+no);
-     document.getElementById("save_button"+no);
-    }
-
-    function delete_row(no)
-    {
-     document.getElementById("row"+no+"").outerHTML="";
-    }
 
     /*function for servie catalog*/
 
@@ -232,3 +212,11 @@ function save_row(no){
             //document.getElementById("row_"+no).outerHTML="";
             $('#row_'+index).remove();
           };
+
+//var a = data;
+//var b = productdata;
+//console.log(JSON.stringify(mergeObjs(a, b)));
+
+//});
+//});
+  //}]);

@@ -1,3 +1,8 @@
+<style>
+tbody#template {
+    display: none;
+}
+</style>
 <div class="container-fluid" ng-controller="homeController">
   <center> <a class="btn btn-lg"> Request an App for <i class="fa fa-android fa-2x" aria-hidden="true"></i> / <i class="fa fa-apple fa-2x" aria-hidden="true"></i> </a> </center>
 
@@ -75,7 +80,7 @@
               </td>
             </tr>
             <tr>
-                <th>ProductName</th>
+                <th>Name</th>
                 <th>Image</th>
                 <th>Price (Rs)</th>
                 <th>Discount(%)</th>
@@ -89,20 +94,16 @@
     </div>
     <h4 id='service_catalog'>Step 5 - Service Catalog </h4>
     <div>
-      <table id="ServiceTable" class="table">
+      <table id="tabledata" class="table">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>ServiceName</th>
                 <th>Price (Rs)</th>
                 <th>Discount(%)</th>
                 <th>Description</th>
-                <th>Add/Edit</th>
-                <th>Update</th>
-                <th>Delete</th>
-
-
                </tr>
         </thead>
+
         <tbody>
               <tr>
                 <td><input type="text" id="new_s_name"></td>
@@ -115,6 +116,10 @@
                 </td>
         </tr>
               </tbody>
+
+
+          <tbody id="serviceinput"></tbody>
+
             </table>
     </div>
   </div>
@@ -124,10 +129,6 @@
     <!-- TODO : Create table for downloading various download formats -->
 </center>
 </form>
-
-
-
-
 <script>
 
 </script>
