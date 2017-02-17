@@ -12,10 +12,23 @@ describe('Navigation Controller ', function() {
 		});
 	}));
 
-	describe('Navigation Controller', function(){
-		it('should not have a empty value for application name',function(){
-			expect(scope.applicationName).not.toBe('');
+	describe('Configurations in navcontroller.js', function(){
+		it('should have applicaiton name defined',function(){
+			expect(scope.applicationName).toBe('One Touch Apps');
 		});
+
+		it('should have declared menu items', function(){
+			expect(scope.menuItems.length).toBe(3);
+		});
+
+		it('should have disabled search feature', function(){
+			expect(scope.enableSearch).toBe(false);
+		});
+
+		it('should have declared search title', function(){
+			expect(scope.search_title).toBe('GO');
+		});
+
 	});
 
 });

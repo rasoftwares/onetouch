@@ -1,6 +1,12 @@
 //home controller
-app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
-  $( "#accordion" ).accordion();
+var debug = true;
+
+app.controller('homeController', ['$scope', '$http', '$compile', function ($scope, $http, $compile) {
+  $( "#accordion").accordion({
+    heightStyle: "fill"
+  });
+
+  $scope.firebase_status = "";
 
   var formToObj = function (obj, name, value) {
      var path = name.split('.'),
@@ -20,6 +26,7 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
      }
      return obj;
   };
+
   jQuery.fn.serializeObject = function () {
      var o = {},
      a = this.serializeArray(),
@@ -28,26 +35,96 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
      for (; i < len; i++) {
          o = formToObj(o, a[i].name, a[i].value);
      }
-      form.reset();
+     //form.reset();
      return o;
   };
 
-  $('button').click(function(e) {
-     e.preventDefault();
-     var data = $('form').serializeObject();
+  $scope.productListKeys = ['name','image', 'price', 'discount'];
+  $scope.product = [];
+  $scope.item = getObject();
 
-     console.log(data);
-     console.log(JSON.stringify(data));
+  $scope.remove = function (arr, valToRemove) {
+    var narr = [];
+    _.each(arr,function(value, index,arr){
+      if(debug)console.log('inside remove() :  ' + (""+value).search(valToRemove));
 
-  });
+      if((""+value).search(valToRemove) >= 0){
+      }else{
+        narr.push(value);
+      }
+    });
+    if(debug)console.log(arr);
+    if(debug)console.log(narr)
+    return narr;
+  };
 
-    }]);
+  $scope.submitRequest = function() {
+    var data = $('form').serializeObject();
+    data.product = $scope.product;
+    data.ios = "";
+    data.android = "";
+    data.status = "New";
+    data.requestDate = "Date to be passed";
+    if(debug)console.log(data);
+    var response = ref.push(data);
+    console.log('response :' + response);
+  };
+
+
+  function getObject() {
+    var f = new File([""], "");
+    var emptyObj = {name:'', image:f, price:'',discount:''};
+    return emptyObj;
+  }
+
+  //TODO: Deleting row functionality is not working
+  $scope.deleterow = function(index) {
+    console.log('Deleting row id :' + "row_" + index);
+    //document.getElementById("row_"+no).outerHTML="";
+    //remove from ui
+    $('#product_row_'+index).remove();
+    $scope.product = $scope.remove($scope.product,("product_row_"+index));
+    //remove from $scope.product list
+
+  };
+
+  $scope.addrow = function(tableName) {
+    console.log("Tablename :"+ tableName);
+
+    if(debug)console.log(tableName);
+    if(debug)console.log("values of item :" + _.values($scope.item));
+    if(debug)console.log("json string of item :" + JSON.stringify($scope.item));
 
 
 
+    if(debug)console.log("Productlist :" + $scope.product);
 
-    function edit_row(no)
-    {
+    //TODO: table name should be externalised
+    var tableName = 'productTable';
+    var table = document.getElementById(tableName);
+    var table_len = (table.rows.length)-1;
+
+    var html = "<tr id='product_row_" + table_len + "'>";
+        _.each($scope.productListKeys, function(value, index, list) {
+            if(debug)console.log('fetching values ' + value + '-' +  $scope.item[value]);
+              html += "<td id='" + value + "_row_" + table_len + "'>" + $scope.item[value] + "</td>";
+        });
+
+        html += "<td><span class='glyphicon glyphicon-pencil' click='edit_row(" + table_len + ")'</span></td><td><span class='glyphicon glyphicon-floppy-saved' ng-click='save_row(" + table_len + ")'</span></td>";
+        html += "<td><a id='deleteProduct_"+ table_len +"' class='btn' ng-click='deleterow(" + table_len + ");'> <span class='glyphicon glyphicon-trash'></span></a> </td>";
+        html += "</tr>";
+
+        var t_html = $compile(html)($scope);
+        if(debug)console.log(t_html);
+
+        $('#productTableBody').append(t_html);
+        $scope.product.push($scope.item);
+        //clear off input fields;
+        $scope.item = getObject();
+  };
+}]);
+
+function edit_row(no) {
      document.getElementById("edit_button"+no);
      document.getElementById("save_button"+no);
 
@@ -67,8 +144,7 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
      discount.innerHTML="<input type='text' id='discount_text"+no+"' value='"+discount_data+"'>";
     }
 
-    function save_row(no)
-    {
+function save_row(no){
      var name_val=document.getElementById("name_text"+no).value;
      var image_val=document.getElementById("image_file"+no).value;
      var price_val=document.getElementById("price_text"+no).value;
@@ -86,23 +162,6 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
     function delete_row(no)
     {
      document.getElementById("row"+no+"").outerHTML="";
-    }
-
-    function add_row()
-    {
-     var new_name=document.getElementById("new_name").value;
-     var new_image=document.getElementById("new_image").value;
-     var new_price=document.getElementById("new_price").value;
-     var new_discount=document.getElementById("new_discount").value;
-
-     var table=document.getElementById("productTable");
-     var table_len=(table.rows.length)-1;
-     var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='name_row"+table_len+"'>"+new_name+"</td><td id='image_row"+table_len+"'>"+new_image+"</td><td id='price_row"+table_len+"'>"+new_price+"</td><td id='discount_row"+table_len+"'>"+new_discount+"</td><td><span class='glyphicon glyphicon-pencil' onclick='edit_row("+table_len+")'</span></td><td><span class='glyphicon glyphicon-floppy-saved' onclick='save_row("+table_len+")'</span></td><td><span class='glyphicon glyphicon-trash' onclick='delete_row("+table_len+")'</span></td></tr>";
-
-     document.getElementById("new_name").value="";
-     document.getElementById("new_image").value="";
-     document.getElementById("new_price").value="";
-     document.getElementById("new_discount").value="";
     }
 
     /*function for servie catalog*/
@@ -167,3 +226,9 @@ app.controller('homeController', ['$scope', '$http', function ($scope, $http) {
            document.getElementById("new_s_discount").value="";
            document.getElementById("new_s_discription").value="";
           }
+
+          function deleterow(index) {
+            console.log('Deleting row id :' + "row_" + index);
+            //document.getElementById("row_"+no).outerHTML="";
+            $('#row_'+index).remove();
+          };

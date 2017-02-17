@@ -3,9 +3,10 @@
 
   <!--dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
   </dynamic-form-->
+  <h4>{{ }}</h4>
   <form id="form">
   <div id="accordion">
-    <h4>Step 1 - Company Details</h4>
+    <h4 id='company_details'>Step 1 - Company Details</h4>
     <div>
       <table class='table'>
         <tr>
@@ -16,7 +17,7 @@
           <td> Registration No </td>
           <td> <input type='number' name="company.registrationNo"/></td>
           <td> Registration Year </td>
-          <td> <input type='date' name="company.date" /></td>
+          <td> <input type='date' name="company.registrationYear" /></td>
         </tr>
         <tr>
           <td> Owner Name </td>
@@ -24,11 +25,12 @@
           <td> Photograph </td>
           <td> <input type='file' name="company.owner.photograph" /></td>
           <td> Short Description </td>
-          <td> <input type='text' name="company.shortDescription" /></td>
+          <td> <input type='text' name="company.shortDescription"/></td>
+
         </tr>
       </table>
     </div>
-    <h4>Step 2 - Contact Details </h4>
+    <h4 id='contact_details'>Step 2 - Contact Details </h4>
     <div>
       <table class='table'>
         <tr>
@@ -48,21 +50,30 @@
         </tr>
       </table>
     </div>
-    <h4>Step 3 - Company Information </h4>
+    <h4 id='company_information'>Step 3 - Company Information </h4>
     <div>
       <table class='table'>
         <tr>
           <td> Website </td>
-          <td> <input type='text' name="website.website "/></td>
+          <td> <input type='text' name="website.website"/></td>
           <td> About Company </td>
-          <td> <input type='text'   name="website.aboutcompany "/></td>
+          <td> <input type='text' name="website.aboutcompany"/></td>
         </tr>
       </table>
     </div>
-    <h4>Step 4 - Product Catalog </h4>
+    <h4 id='product_catalog'>Step 4 - Product Catalog </h4>
     <div>
       <table id="productTable" class="table">
-        <thead>
+            <tr>
+              <td><input type="text" id="new_name" ng-model="item.name"></td>
+              <td><input type="file" id="new_image"  ng-model="item.image"></td>
+              <td><input type="text" id="new_price"  ng-model="item.price"></td>
+              <td><input type="text" id="new_discount"  ng-model="item.discount"></td>
+              <td ><a id='addProduct' class='btn' ng-click="addrow('productTable');"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+              <!--td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
+              <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td-->
+              </td>
+            </tr>
             <tr>
                 <th>ProductName</th>
                 <th>Image</th>
@@ -71,26 +82,12 @@
                 <th>Add/Edit</th>
                 <th>Update</th>
                 <th>Delete</th>
-
-
-               </tr>
-        </thead>
-        <tbody>
-              <tr>
-                <td><input type="text" id="new_name"></td>
-                <td><input type="file" id="new_image"></td>
-                <td><input type="text" id="new_price"></td>
-                <td><input type="text" id="new_discount"></td>
-                <td ><a class='btn' onclick="add_row();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-                <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
-                <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
-                </td>
-
-        </tr>
-              </tbody>
-            </table>
+            </tr>
+            <tbody id='productTableBody'>
+            </tbody>
+        </table>
     </div>
-    <h4>Step 5 - Service Catalog </h4>
+    <h4 id='service_catalog'>Step 5 - Service Catalog </h4>
     <div>
       <table id="ServiceTable" class="table">
         <thead>
@@ -116,22 +113,21 @@
                 <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
                 <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
                 </td>
-
         </tr>
               </tbody>
             </table>
     </div>
   </div>
-<form>
-    <div>
-	  <!--<button class="btn btn-primary" onClick="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>-->
-    <button class="btn btn-primary"><strong>Submit</strong></button>
-    <button class="btn btn-info " onclick="populateForm(FormData)"><strong>View</strong></button>
-    <button class="btn btn-success"><strong>Download for Android</strong> </button>
-    <button class="btn btn-success"><strong>Download for iOS </strong></button>
+    <center>
+    <button class="btn btn-primary" id="submit_btn" ng-click='submitRequest();'><strong>Submit</strong></button>
     <!-- TODO : Add preview screen -->
-    <!-- TODO : Create table for downloading various options -->
-</div>
+    <!-- TODO : Create table for downloading various download formats -->
+</center>
+</form>
+
+
+
+
 <script>
 
 </script>
