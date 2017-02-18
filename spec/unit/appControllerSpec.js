@@ -21,6 +21,22 @@ describe('Navigation Controller ', function() {
 			expect(scope.menuItems.length).toBe(3);
 		});
 
+		it('should validate the contents of menu items', function(){
+			var arr=['Home','Settings','List'];
+			var mItems = scope.menuItems;
+			var flag = false;
+			_.each(mItems,function(value,idx,array){
+					_.each(arr,function(v,id,a){
+							if(v == value.name){
+								flag = true;
+							}
+					});
+					expect(flag).toBe(true);
+			});
+
+			expect(scope.menuItems.length).toBe(3);
+		});
+
 		it('should have disabled search feature', function(){
 			expect(scope.enableSearch).toBe(false);
 		});

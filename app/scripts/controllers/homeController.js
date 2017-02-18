@@ -50,7 +50,8 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
     _.each(arr,function(value, index,arr){
       if(debug)console.log('inside remove() :  ' + (""+value).search(valToRemove));
 
-      if((""+value).search(valToRemove) >= 0){
+      if((""+value).search(valToRemove) >= 0) {
+
       }else{
         narr.push(value);
       }
@@ -96,8 +97,6 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
     if(debug)console.log(tableName);
     if(debug)console.log("values of item :" + _.values($scope.item));
     if(debug)console.log("json string of item :" + JSON.stringify($scope.item));
-
-
 
     if(debug)console.log("Productlist :" + $scope.product);
 

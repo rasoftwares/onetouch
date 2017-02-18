@@ -19,12 +19,8 @@ describe('Home Controller ', function() {
 
 		it('getObject method should return empty object ', function(){
 			//TODO: Unable to pass this method as, could not get the getobject() method
-			/*
-			var obj = this.getObject();
-			console.log(obj);
-			console.log(_.keys(obj));
-			//expect().toBe();
-			*/
+			// var obj = this.getObject(); console.log(obj); console.log(_.keys(obj));expect().toBe();
+
 		});
 
 		it('should add a new row in UI',function(){

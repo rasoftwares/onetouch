@@ -1,14 +1,9 @@
-<style>
-tbody#template {
-    display: none;
-}
-</style>
 <div class="container-fluid" ng-controller="homeController">
-  <center> <a class="btn btn-lg"> Request an App for <i class="fa fa-android fa-2x" aria-hidden="true"></i> / <i class="fa fa-apple fa-2x" aria-hidden="true"></i> </a> </center>
+  <center> <a class="btn"> Request an App for <i class="fa fa-android fa-2x" aria-hidden="true"></i> / <i class="fa fa-apple fa-2x" aria-hidden="true"></i> </a> </center>
 
   <!--dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
   </dynamic-form-->
-  <h4>{{ }}</h4>
+
   <form id="form">
   <div id="accordion">
     <h4 id='company_details'>Step 1 - Company Details</h4>
@@ -125,9 +120,9 @@ tbody#template {
   </div>
     <center>
     <button class="btn btn-primary" id="submit_btn" ng-click='submitRequest();'><strong>Submit</strong></button>
-    <!-- TODO : Add preview screen -->
-    <!-- TODO : Create table for downloading various download formats -->
-</center>
+        <!-- TODO : Add preview screen -->
+        <!-- TODO : Create table for downloading various download formats -->
+    </center>
 </form>
 <script>
 
