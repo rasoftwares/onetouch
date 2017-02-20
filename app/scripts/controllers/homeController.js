@@ -60,10 +60,34 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
     if(debug)console.log(narr)
     return narr;
   };
+  //ServiceTable
+  $scope.serviceListKeys = ['servicename','price', 'discount','description'];
+  $scope.service = [];
+  $scope.serviceitem = ServicegetObject();
+
+  $scope.serviceremove = function (arr, valToRemove) {
+    var narr = [];
+    _.each(arr,function(value, index,arr){
+      if(debug)console.log('inside remove() :  ' + (""+value).search(valToRemove));
+
+      if((""+value).search(valToRemove) >= 0) {
+
+      }else{
+        narr.push(value);
+      }
+    });
+    if(debug)console.log(arr);
+    if(debug)console.log(narr)
+    return narr;
+  };
+
+
+
 
   $scope.submitRequest = function() {
     var data = $('form').serializeObject();
     data.product = $scope.product;
+    data.service = $scope.service;
     data.ios = "";
     data.android = "";
     data.status = "New";
@@ -79,6 +103,12 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
     var emptyObj = {name:'', image:f, price:'',discount:''};
     return emptyObj;
   }
+  //service--
+  function ServicegetObject() {
+    var f = new File([""], "");
+    var emptyObj = {servicename:'',price:'',discount:'',description:''};
+    return emptyObj;
+  }
 
   //TODO: Deleting row functionality is not working
   $scope.deleterow = function(index) {
@@ -91,6 +121,18 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
 
   };
 
+  //service delete row--
+  $scope.servicedeleterow = function(index) {
+    console.log('Deleting row id :' + "row_" + index);
+    //document.getElementById("row_"+no).outerHTML="";
+    //remove from ui
+    $('#service_row_'+index).remove();
+    $scope.service = $scope.remove($scope.service,("service_row_"+index));
+    //remove from $scope.service list
+
+  };
+
+//product table addrow--
   $scope.addrow = function(tableName) {
     console.log("Tablename :"+ tableName);
 
@@ -123,7 +165,71 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
         //clear off input fields;
         $scope.item = getObject();
   };
+
+//service--table add row
+  $scope.serviceaddrow = function(tableName) {
+  console.log("Tablename :"+ tableName);
+
+  if(debug)console.log(tableName);
+  if(debug)console.log("values of item :" + _.values($scope.serviceitem));
+  if(debug)console.log("json string of item :" + JSON.stringify($scope.serviceitem));
+
+  if(debug)console.log("Servicelist :" + $scope.service);
+
+  //TODO: table name should be externalised
+  var tableName = 'serviceTable';
+  var table = document.getElementById(tableName);
+  var table_len = (table.rows.length)-1;
+
+  var html = "<tr id='service_row_" + table_len + "'>";
+      _.each($scope.serviceListKeys, function(value, index, list) {
+          if(debug)console.log('fetching values ' + value + '-' +  $scope.serviceitem[value]);
+            html += "<td id='" + value + "_row_" + table_len + "'>" + $scope.serviceitem[value] + "</td>";
+      });
+
+      html += "<td><span class='glyphicon glyphicon-pencil' click='edit_row(" + table_len + ")'</span></td><td><span class='glyphicon glyphicon-floppy-saved' ng-click='save_row(" + table_len + ")'</span></td>";
+      html += "<td><a id='deletetService_"+ table_len +"' class='btn' ng-click='servicedeleterow(" + table_len + ");'> <span class='glyphicon glyphicon-trash'></span></a> </td>";
+      html += "</tr>";
+
+      var t_html = $compile(html)($scope);
+      if(debug)console.log(t_html);
+
+      $('#serviceTableBody').append(t_html);
+      $scope.service.push($scope.serviceitem);
+      //clear off input fields;
+      $scope.serviceitem = ServicegetObject();
+};
+
 }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function edit_row(no) {
      document.getElementById("edit_button"+no);
