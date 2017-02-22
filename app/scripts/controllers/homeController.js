@@ -1,5 +1,6 @@
 //home controller
 var debug = true;
+var fine = false;
 
 app.controller('homeController', ['$scope', '$http', '$compile', function ($scope, $http, $compile) {
   $( "#accordion").accordion({
@@ -48,6 +49,7 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
   $scope.remove = function (arr, valToRemove) {
     var narr = [];
     _.each(arr,function(value, index,arr){
+      if(debug)console.log('value->' + value + ":" + valToRemove);
       if(debug)console.log('inside remove() :  ' + (""+value).search(valToRemove));
 
       if((""+value).search(valToRemove) >= 0) {
@@ -86,7 +88,8 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
     //document.getElementById("row_"+no).outerHTML="";
     //remove from ui
     $('#product_row_'+index).remove();
-    $scope.product = $scope.remove($scope.product,("product_row_"+index));
+    $scope.product.splice(index-1,1);
+    if(debug)console.log("$scope.product :" + $scope.product);
     //remove from $scope.product list
 
   };
@@ -107,7 +110,7 @@ app.controller('homeController', ['$scope', '$http', '$compile', function ($scop
 
     var html = "<tr id='product_row_" + table_len + "'>";
         _.each($scope.productListKeys, function(value, index, list) {
-            if(debug)console.log('fetching values ' + value + '-' +  $scope.item[value]);
+            if(fine)console.log('fetching values ' + value + '-' +  $scope.item[value]);
               html += "<td id='" + value + "_row_" + table_len + "'>" + $scope.item[value] + "</td>";
         });
 

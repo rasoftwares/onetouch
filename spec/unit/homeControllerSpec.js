@@ -40,6 +40,20 @@ describe('Home Controller ', function() {
 			expect(narr.length).toBe(3);
 		});
 
+		it('should remove one item from scope.product ',function(){
+			var arr = [{'discount':'10','image':File,'name':'Product-A','price':'1865.00'},
+								 {'discount':'20','image':File,'name':'Product-B','price':'2535.00'},
+								 {'discount':'30','image':File,'name':'Product-C','price':'2535.00'} ];
+			scope.product = arr;
+			expect(scope.product.length).toBe(3);
+
+			console.log(scope.product);
+			scope.deleterow(3);
+			console.log(scope.product);
+			expect(scope.product.length).toBe(2);
+
+		});
+
 	});
 
 });

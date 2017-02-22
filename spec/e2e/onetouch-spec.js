@@ -110,6 +110,16 @@ var url = 'http://localhost/onetouch';
         browser.driver.sleep(500);
         expect(element(by.id('product_row_2')).isPresent()).toBe(true);
 
+        //Add third product item
+        element(by.model('item.name')).sendKeys('Product-C');
+        element(by.model('item.price')).sendKeys('87652');
+        element(by.model('item.discount')).sendKeys('25');
+
+        element(by.id('addProduct')).click();
+        browser.driver.sleep(500);
+        expect(element(by.id('product_row_3')).isPresent()).toBe(true);
+
+        //Delete second item
         element(by.id('deleteProduct_2')).click();
         browser.driver.sleep(500);
         expect(element(by.id('product_row_2')).isPresent()).toBe(false);
@@ -123,6 +133,6 @@ var url = 'http://localhost/onetouch';
 
   it('Should navigate to list screen and wait for 5 seconds and validate the table row count response', function() {
     element(by.id('List')).click();
-    browser.driver.sleep(100);
+    browser.driver.sleep(5000);
   });
 });
