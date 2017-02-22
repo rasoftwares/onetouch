@@ -89,33 +89,30 @@
     </div>
     <h4 id='service_catalog'>Step 5 - Service Catalog </h4>
     <div>
-      <table id="tabledata" class="table">
-        <thead>
+      <table id="serviceTable" class="table">
+            <tr>
+              <td><input type="text" id="new_name" ng-model="serviceitem.servicename"></td>
+              <td><input type="text" id="new_price"  ng-model="serviceitem.price"></td>
+              <td><input type="text" id="new_discount"  ng-model="serviceitem.discount"></td>
+              <td><input type="text" id="new_description"  ng-model="serviceitem.description"></td>
+              <td ><a id='addService' class='btn' ng-click="serviceaddrow('serviceTable');"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+              <!--td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
+              <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td-->
+              </td>
+            </tr>
             <tr>
                 <th>ServiceName</th>
                 <th>Price (Rs)</th>
-                <th>Discount(%)</th>
+                <th>Discount (%)</th>
                 <th>Description</th>
-               </tr>
-        </thead>
+                <th>Add/Edit</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tbody id='serviceTableBody'>
+            </tbody>
+        </table>
 
-        <tbody>
-              <tr>
-                <td><input type="text" id="new_s_name"></td>
-                <td><input type="text" id="new_s_price"></td>
-                <td><input type="text" id="new_s_discount"></td>
-                <td><input type="text" id="new_s_discription"></td>
-                <td ><a class='btn' onclick="add_rows();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-                <td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
-                <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
-                </td>
-        </tr>
-              </tbody>
-
-
-          <tbody id="serviceinput"></tbody>
-
-            </table>
     </div>
   </div>
     <center>
