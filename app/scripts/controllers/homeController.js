@@ -4,7 +4,7 @@ var fine = false;
 
 app.controller('homeController', ['$scope', '$http', '$compile', function ($scope, $http, $compile) {
   $( "#accordion").accordion({
-    heightStyle: "fill"
+    //heightStyle: "fill"
   });
 
   $scope.firebase_status = "";
