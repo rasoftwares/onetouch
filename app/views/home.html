@@ -1,19 +1,126 @@
-<div class="container-fluid" ng-controller="homeCtrl">
-  <a class="btn btn-lg"> App Request Form </a><BR/>
+<div class="container-fluid" ng-controller="homeController">
+  <center> <a class="btn"> Request an App for <i class="fa fa-android fa-2x" aria-hidden="true"></i> / <i class="fa fa-apple fa-2x" aria-hidden="true"></i> </a> </center>
 
-  <dynamic-form id="Form" cl
-  ass="col-md-12" template="fromTemplate" ng-model="formData">
-  </dynamic-form>
-    <div class="col-md-4">
-      <div class="fixed col-md-4">
-        <pre>stdFormData: {{stdFormData | pretty}}</pre>
-       </div>
+  <!--dynamic-form id="Form" class="col-md-12" template="fromTemplate" ng-model="formData">
+  </dynamic-form-->
+
+  <form id="form">
+  <div id="accordion">
+    <h4 id='company_details'>Step 1 - Company Details</h4>
+    <div>
+      <table class='table'>
+        <tr>
+          <td> Name </td>
+          <td> <input type='text' name="company.name" /></td>
+          <td> Title </td>
+          <td> <input type='text'  name="company.title"/></td>
+          <td> Registration No </td>
+          <td> <input type='number' name="company.registrationNo"/></td>
+          <td> Registration Year </td>
+          <td> <input type='date' name="company.registrationYear" /></td>
+        </tr>
+        <tr>
+          <td> Owner Name </td>
+          <td> <input type='text'  name="company.owner.name" /></td>
+          <td> Photograph </td>
+          <td> <input type='file' name="company.owner.photograph" /></td>
+          <td> Short Description </td>
+          <td> <input type='text' name="company.shortDescription"/></td>
+
+        </tr>
+      </table>
     </div>
+    <h4 id='contact_details'>Step 2 - Contact Details </h4>
+    <div>
+      <table class='table'>
+        <tr>
+          <td> Registered Address </td>
+          <td> <input type='text' name="contact.registrationAddress" /></td>
+          <td> Office Address </td>
+          <td> <input type='text' name="contact.officeAddress" /></td>
+          <td> Landline Number </td>
+          <td> <input type='number' name="contact.landlineNumber"/></td>
+          <td> Mobile Number </td>
+          <td> <input type='number'  name="contact.mobileNumber"/></td>
+        </tr>
+        <tr>
+          <td> EmailId </td>
+          <td> <input type='email'  name="contact.emailId"/></td>
 
-	  <button class="btn btn-primary" onClick="formDataToObject(document.getElementById('Form'))"><strong>Submit</strong></button>
-    <button class="btn btn-info" onclick="populateForm(aFormData)"><strong>View</strong></button>
-    <button class="btn btn-success"><strong>Download for Android</strong> </button>
-    <button class="btn btn-success"><strong>Download for iOS </strong></button>
-    <!-- TODO : Add preview screen -->
-    <!-- TODO : Create table for downloading various options -->
-</div>
+        </tr>
+      </table>
+    </div>
+    <h4 id='company_information'>Step 3 - Company Information </h4>
+    <div>
+      <table class='table'>
+        <tr>
+          <td> Website </td>
+          <td> <input type='text' name="website.website"/></td>
+          <td> About Company </td>
+          <td> <input type='text' name="website.aboutcompany"/></td>
+        </tr>
+      </table>
+    </div>
+    <h4 id='product_catalog'>Step 4 - Product Catalog </h4>
+    <div>
+      <table id="productTable" class="table">
+            <tr>
+              <td><input type="text" id="new_name" ng-model="item.name"></td>
+              <td><input type="file" id="new_image"  ng-model="item.image"></td>
+              <td><input type="text" id="new_price"  ng-model="item.price"></td>
+              <td><input type="text" id="new_discount"  ng-model="item.discount"></td>
+              <td ><a id='addProduct' class='btn' ng-click="addrow('productTable');"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+              <!--td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
+              <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td-->
+              </td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price (Rs)</th>
+                <th>Discount(%)</th>
+                <th>Add/Edit</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tbody id='productTableBody'>
+            </tbody>
+        </table>
+    </div>
+    <h4 id='service_catalog'>Step 5 - Service Catalog </h4>
+    <div>
+      <table id="serviceTable" class="table">
+            <tr>
+              <td><input type="text" id="new_name" ng-model="serviceitem.servicename"></td>
+              <td><input type="text" id="new_price"  ng-model="serviceitem.price"></td>
+              <td><input type="text" id="new_discount"  ng-model="serviceitem.discount"></td>
+              <td><input type="text" id="new_description"  ng-model="serviceitem.description"></td>
+              <td ><a id='addService' class='btn' ng-click="serviceaddrow('serviceTable');"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+              <!--td ><a class='btn'><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></a></td>
+              <td ><a class='btn'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td-->
+              </td>
+            </tr>
+            <tr>
+                <th>ServiceName</th>
+                <th>Price (Rs)</th>
+                <th>Discount (%)</th>
+                <th>Description</th>
+                <th>Add/Edit</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tbody id='serviceTableBody'>
+            </tbody>
+        </table>
+
+    </div>
+  </div>
+    <center>
+    <button class="btn btn-primary" id="submit_btn" ng-click='submitRequest();'><strong>Submit</strong></button>
+        <!-- TODO : Add preview screen -->
+        <!-- TODO : Create table for downloading various download formats -->
+    </center>
+</form>
+<script>
+
+</script>

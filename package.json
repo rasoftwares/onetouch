@@ -26,6 +26,7 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.1.0"
+    
   },
   "scripts": {
     "test": "karma start karma-unit.conf.js --browsers Firefox --single-run"
